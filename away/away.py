@@ -22,7 +22,9 @@ class Away:
             if message.author.id in self.data:
                 print("ID IN DATA")
                 del self.data[author.id]
-                msg = 'You\'re now back.' 
+                msg = 'You\'re now back.'
+                dataIO.save_json('data/away/away.json', self.data)
+                await self.bot.say(msg)
                 
         if server.id not in self.data:
             for mention in message.mentions:
