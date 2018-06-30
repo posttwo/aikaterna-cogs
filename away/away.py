@@ -14,6 +14,12 @@ class Away:
     async def listener(self, message):
         tmp = {}
         server = message.server
+        prefix = yield from self._get_prefix(message)
+        if message.content.startswith(prefix):
+            if message.author.id in self.data:
+                del self.data[author.id]
+                msg = 'You\'re now back.' 
+                
         if server.id not in self.data:
             for mention in message.mentions:
                 tmp[mention] = True
