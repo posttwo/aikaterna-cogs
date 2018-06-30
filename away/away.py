@@ -19,11 +19,9 @@ class Away:
         print(message.content)
         if not message.content.startswith(prefix):
             if message.author.id in self.data:
-                print("ID IN DATA")
+                await self.bot.say('Welcome Back')
                 del self.data[message.author.id]
-                msg = 'You\'re now back.'
                 dataIO.save_json('data/away/away.json', self.data)
-                await self.bot.say(msg)
                 
         if server.id not in self.data:
             for mention in message.mentions:
