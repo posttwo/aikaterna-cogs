@@ -14,7 +14,7 @@ class Away:
     async def listener(self, message):
         tmp = {}
         server = message.server
-        prefix = self.bot._get_prefix(message)
+        prefix = self.bot.command_prefix()
         print("Prefix: {}".format(prefix))
         print(message.content)
         if message.content.startswith(prefix):
