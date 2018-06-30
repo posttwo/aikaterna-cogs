@@ -18,10 +18,9 @@ class Away:
         print("Prefix: {}".format(prefix))
         print(message.content)
         if not message.content.startswith(prefix):
-            print("MSG STARTED")
             if message.author.id in self.data:
                 print("ID IN DATA")
-                del self.data[author.id]
+                del self.data[message.author.id]
                 msg = 'You\'re now back.'
                 dataIO.save_json('data/away/away.json', self.data)
                 await self.bot.say(msg)
