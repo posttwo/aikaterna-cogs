@@ -14,7 +14,7 @@ class Away:
     async def listener(self, message):
         tmp = {}
         server = message.server
-        prefix = yield from self._get_prefix(message)
+        prefix = yield from self.bot._get_prefix(message)
         if message.content.startswith(prefix):
             if message.author.id in self.data:
                 del self.data[author.id]
