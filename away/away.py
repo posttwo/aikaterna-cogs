@@ -14,12 +14,13 @@ class Away:
     async def listener(self, message):
         tmp = {}
         server = message.server
-        prefix = '='
-        if not message.content.startswith(prefix):
-            if message.author.id in self.data:
-                await self.bot.send_message(message.channel, 'Welcome Back {}'.format(message.author.mention))
-                del self.data[message.author.id]
-                dataIO.save_json('data/away/away.json', self.data)
+        prefixes = self.bot.settings.get_prefixes(message.server)
+        for p in prefixes:
+            if message.content.startswith(p):
+                if message.author.id in self.data:
+                    await self.bot.send_message(message.channel, 'Welcome Back {}'.format(message.author.mention))
+                    del self.data[message.author.id]
+                    dataIO.save_json('data/away/away.json', self.data)
                 
         if server.id not in self.data:
             for mention in message.mentions:
