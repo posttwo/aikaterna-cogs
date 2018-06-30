@@ -16,7 +16,7 @@ class Away:
         server = message.server
         prefixes = self.bot.settings.get_prefixes(message.server)
         for p in prefixes:
-            if message.content.startswith(p):
+            if not message.content.startswith(p):
                 if message.author.id in self.data:
                     await self.bot.send_message(message.channel, 'Welcome Back {}'.format(message.author.mention))
                     del self.data[message.author.id]
