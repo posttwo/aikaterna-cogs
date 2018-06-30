@@ -15,8 +15,11 @@ class Away:
         tmp = {}
         server = message.server
         prefix = self.bot._get_prefix(message)
+        print("Prefix: {}".format(prefix))
         if message.content.startswith(prefix):
+            print("MSG STARTED")
             if message.author.id in self.data:
+                print("ID IN DATA")
                 del self.data[author.id]
                 msg = 'You\'re now back.' 
                 
