@@ -19,7 +19,7 @@ class Away:
         print(message.content)
         if not message.content.startswith(prefix):
             if message.author.id in self.data:
-                await self.bot.say('Welcome Back')
+                await self.bot.send_message(message.channel, 'Welcome Back {}'.format(message.author.mention))
                 del self.data[message.author.id]
                 dataIO.save_json('data/away/away.json', self.data)
                 
