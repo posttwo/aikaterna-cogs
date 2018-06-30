@@ -17,7 +17,7 @@ class Away:
         prefix = '='
         print("Prefix: {}".format(prefix))
         print(message.content)
-        if message.content.startswith(prefix):
+        if not message.content.startswith(prefix):
             print("MSG STARTED")
             if message.author.id in self.data:
                 print("ID IN DATA")
