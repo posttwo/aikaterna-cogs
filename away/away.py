@@ -16,6 +16,7 @@ class Away:
         server = message.server
         prefix = self.bot._get_prefix(message)
         print("Prefix: {}".format(prefix))
+        print(message.content)
         if message.content.startswith(prefix):
             print("MSG STARTED")
             if message.author.id in self.data:
