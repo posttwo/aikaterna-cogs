@@ -15,8 +15,6 @@ class Away:
         tmp = {}
         server = message.server
         prefix = '='
-        print("Prefix: {}".format(prefix))
-        print(message.content)
         if not message.content.startswith(prefix):
             if message.author.id in self.data:
                 await self.bot.send_message(message.channel, 'Welcome Back {}'.format(message.author.mention))
