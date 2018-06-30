@@ -17,9 +17,10 @@ class Away:
         if server.id not in self.data:
             for mention in message.mentions:
                 tmp[mention] = True
-            if message.author.id in self.data
+            if message.author.id in self.data:
                 del self.data[message.author.id]
                 await self.bot.say("{0} You're now back".format(message.author.mention))
+            
             if message.author.id != self.bot.user.id:
                 for author in tmp:
                     if author.id in self.data:
