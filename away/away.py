@@ -6,7 +6,7 @@ from cogs.utils.dataIO import dataIO
 
 
 class Away:
-    """Le away cog"""
+    """Yells at users when they mention you"""
     def __init__(self, bot):
         self.bot = bot
         self.data = dataIO.load_json('data/away/away.json')
