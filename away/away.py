@@ -15,9 +15,12 @@ class Away:
         tmp = {}
         server = message.server
         prefixes = self.bot.settings.get_prefixes(message.server)
+        isCommentCommand = False
         for p in prefixes:
+            if message.content.startswith(p):
+                isCommentCommand = True
             if not message.content.startswith(p):
-                if message.author.id in self.data:
+                if message.author.id in self.data and not isCommentCommand:
                     await self.bot.send_message(message.channel, 'Welcome Back {}'.format(message.author.mention))
                     del self.data[message.author.id]
                     dataIO.save_json('data/away/away.json', self.data)
