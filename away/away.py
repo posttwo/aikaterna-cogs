@@ -19,11 +19,11 @@ class Away:
         for p in prefixes:
             if message.content.startswith(p):
                 isCommentCommand = True
-            if not message.content.startswith(p):
-                if message.author.id in self.data and not isCommentCommand:
-                    await self.bot.send_message(message.channel, 'Welcome Back {}'.format(message.author.mention))
-                    del self.data[message.author.id]
-                    dataIO.save_json('data/away/away.json', self.data)
+
+        if message.author.id in self.data and not isCommentCommand:
+            await self.bot.send_message(message.channel, 'Welcome Back {}'.format(message.author.mention))
+            del self.data[message.author.id]
+            dataIO.save_json('data/away/away.json', self.data)
                 
         if server.id not in self.data:
             for mention in message.mentions:
